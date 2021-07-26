@@ -15,6 +15,7 @@ public class ProductService {
     @Autowired
     private ProductRepository productRepository;
 
+    @Autowired
     private ObjectMapper objectMapper;
 
     Logger logger = LoggerFactory.getLogger(this.getClass());

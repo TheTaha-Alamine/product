@@ -7,7 +7,14 @@ INSERT INTO base_product(id, document)  VALUES (111111, '{
     "long": "OMO Matic"
   },
   "status": "SELLABLE",
-  "created": "2016-08-10T11:54:02+02:00"
+  "created": "2016-08-10T11:54:02+02:00",
+  "variants": [
+    {
+        "sku": "11111101",
+        "status": "SELLABLE",
+        "price": "19.99"
+    }
+  ]
 }'
 );
 
@@ -18,6 +25,13 @@ INSERT INTO base_product(id, document)  VALUES (222222, '{
     "long": "Play Station 4"
   },
   "status": "SELLABLE",
-  "created": "2016-08-10T11:54:02+02:00"
+  "created": "2016-08-10T11:54:02+02:00",
+  "variants": [
+    {
+        "sku": "22222201",
+        "status": "SELLABLE",
+        "price": "29.99"
+    }
+  ]
 }'
-                                               );
+);

@@ -25,3 +25,4 @@ services:
       - POSTGRES_DB=product_db
       - POSTGRES_USER=compose-postgres
       - POSTGRES_PASSWORD=compose-postgres
+## to access your db from docker cli psql -U compose-postgres product_db

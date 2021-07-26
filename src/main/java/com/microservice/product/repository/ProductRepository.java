@@ -23,8 +23,10 @@ public class ProductRepository {
 
         try {
             String product = jdbcTemplate.
-                    queryForObject("select document from base_product where document ->> 'base_product_no' == :base_Product_No",
-                    Map.of("base_product_no", List.of(baseProductNo)),
+                    queryForObject("select document " +
+                                    "from base_product " +
+                                    "where document ->> 'base_product_no' = :base_product_no",
+                    Map.of("base_product_no", baseProductNo),
                     String.class);
             return product;
         } catch (DataAccessException e) {
