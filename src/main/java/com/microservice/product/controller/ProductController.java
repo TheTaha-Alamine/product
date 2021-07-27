@@ -22,7 +22,7 @@ public class ProductController {
 
     @GetMapping("/{productNo}")
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<Product> getProductDetails(@PathVariable String productNo) throws JsonProcessingException {
+    public ResponseEntity<Produc> getProductDetails(@PathVariable String productNo) throws JsonProcessingException {
         Product product = productService.findByBaseProductNo(productNo);
 
         return ResponseEntity.ok()
