@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/product_db
-    username: compose-postgres
-    password: compose-postgres
+    url: jdbc:postgresql://localhost:5432/product_db?ssl=true
+    username: postgres
+    password: password
   jackson:
     property-naming-strategy: SNAKE_CASE
     default-property-inclusion: non_null

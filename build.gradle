@@ -1,5 +1,6 @@
 plugins {
 	id 'org.springframework.boot' version '2.5.3'
+	id "org.flywaydb.flyway" version "5.2.4"
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
 }
@@ -15,14 +16,25 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.flywaydb:flyway-core'
+	implementation group: 'org.flywaydb', name: 'flyway-core', version: '5.2.4'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
     implementation 'org.jetbrains:annotations:20.1.0'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
-	runtimeOnly 'org.postgresql:postgresql'
+	implementation group: 'org.postgresql', name: 'postgresql', version: '42.1.4'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation group: 'org.testcontainers', name: 'testcontainers', version: '1.15.2'
+	testImplementation group: 'org.testcontainers', name: 'junit-jupiter', version: '1.15.2'
+	testImplementation group: 'org.testcontainers', name: 'postgresql', version: '1.15.2'
+	testImplementation group: 'org.testcontainers', name: 'localstack', version: '1.15.2'
 }
 
 test {
 	useJUnitPlatform()
+	systemProperties([
+			'DATABASE_HOST'    : System.getProperty('DATABASE_HOST', "localhost"),
+			'DATABASE_PORT'    : System.getProperty('DATABASE_PORT', "5432"),
+			'DATABASE_USER'    : System.getProperty('DATABASE_USER', "postgres"),
+			'DATABASE_PASSWORD': System.getProperty('DATABASE_PASSWORD', "pasword"),
+			'DATABASE_NAME'    : System.getProperty('DATABASE_NAME', "product_db"),
+	])
 }
